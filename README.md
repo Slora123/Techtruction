@@ -1,42 +1,15 @@
-# 🚀 Quick Start: Techtruction Resume Uploader
+# Job-Khojo
 
-A simple web app to upload your resume and analyze your skills using AI.
+## Getting Started
 
-## 1. Install dependencies
-```bash
-npm install
-```
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Start the development server:
+   ```
+   npm run dev
+   ```
 
-## 2. Create required folders
-```bash
-mkdir uploads
-data
-```
-
-## 3. Start the backend server
-```bash
-node server.js
-```
-
-## 4. Start the frontend (in a new terminal)
-```bash
-npm run dev
-```
-
-## 5. Open your browser
-Go to [http://localhost:5173](http://localhost:5173)
-
----
-
-**Troubleshooting:**
-- If resume upload fails, make sure the `uploads` folder exists in your project root.
-- Check your backend terminal for errors if you have issues.
-
----
-
-**Project Structure:**
-- `server.js` — Express backend (handles uploads)
-- `src/` — React frontend
-- `uploads/` — Where uploaded files are stored
-- `data/` — User data
-
+This will start both the backend and frontend. Job fetching and searching will work out of the box.

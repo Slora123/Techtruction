@@ -4,8 +4,9 @@ import path from "path";
 import multer from "multer";
 import cors from "cors";
 import { v4 as uuidv4 } from "uuid";
-import { fileURLToPath } from 'url';
-import { processResume, getLatestAnalysis } from './lib/resumeProcessor.js';
+import { fileURLToPath } from "url";
+import { processResume, getLatestAnalysis } from "./lib/resumeProcessor.js";
+import * as jobFetcher from "./lib/jobFetcher.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,13 +40,13 @@ function writeUsers(users) {
 // Set up multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, 'uploads'));
+    cb(null, path.join(__dirname, "uploads"));
   },
   filename: function (req, file, cb) {
     const ext = path.extname(file.originalname);
     const fileId = uuidv4();
     cb(null, `${fileId}${ext}`);
-  }
+  },
 });
 const upload = multer({ storage });
 
@@ -53,11 +54,9 @@ const upload = multer({ storage });
 app.post("/api/login", (req, res) => {
   const { username, email, password, gender, city } = req.body;
   if (!username || !email || !password || !gender || !city) {
-    return res
-      .status(400)
-      .json({
-        error: "username, email, password, gender, and city are required",
-      });
+    return res.status(400).json({
+      error: "username, email, password, gender, and city are required",
+    });
   }
   const users = readUsers();
   if (users.find((u) => u.username === username)) {
@@ -104,38 +103,42 @@ app.post("/api/resume", (req, res) => {
 });
 
 // POST /upload: Receive PDF, save, and process with JavaScript
-app.post('/upload', upload.single('resume'), async (req, res) => {
+app.post("/upload", upload.single("resume"), async (req, res) => {
   if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
+    return res.status(400).json({ error: "No file uploaded" });
   }
   const fileId = path.parse(req.file.filename).name;
-  const filePath = path.resolve(path.join(__dirname, 'uploads', req.file.filename));
+  const filePath = path.resolve(
+    path.join(__dirname, "uploads", req.file.filename)
+  );
 
-  console.log('File uploaded:', req.file.originalname);
-  console.log('File saved as:', req.file.filename);
-  console.log('File path:', filePath);
+  console.log("File uploaded:", req.file.originalname);
+  console.log("File saved as:", req.file.filename);
+  console.log("File path:", filePath);
 
   try {
     // Process with JavaScript processor
-    console.log('Processing with JavaScript processor...');
+    console.log("Processing with JavaScript processor...");
     const result = await processResume(fileId, filePath, req.body.user);
-    console.log('Processing result:', result);
-    
+    console.log("Processing result:", result);
+
     // Return result to frontend
-    return res.json({ 
-      file_id: fileId, 
+    return res.json({
+      file_id: fileId,
       file_path: filePath,
       skills: result.skills,
-      textLength: result.textLength
+      textLength: result.textLength,
     });
   } catch (err) {
-    console.error('Processing error:', err.message);
-    return res.status(500).json({ error: 'Processing failed', details: err.message });
+    console.error("Processing error:", err.message);
+    return res
+      .status(500)
+      .json({ error: "Processing failed", details: err.message });
   }
 });
 
 // GET /processor-status: Get latest analysis info
-app.get('/processor-status', (req, res) => {
+app.get("/processor-status", (req, res) => {
   const analysis = getLatestAnalysis();
   const html = `
     <html>
@@ -152,10 +155,16 @@ app.get('/processor-status', (req, res) => {
     <body>
         <div class="container">
             <h2>Latest Resume Analysis (JavaScript Processor)</h2>
-            <p><b>User/File:</b> ${analysis.user || 'N/A'}</p>
+            <p><b>User/File:</b> ${analysis.user || "N/A"}</p>
             <div class="skills">
                 <b>Extracted Skills:</b><br>
-                ${analysis.skills.length > 0 ? analysis.skills.map(s => `<span class="skill">${s}</span>`).join('') : '<i>No skills extracted yet.</i>'}
+                ${
+                  analysis.skills.length > 0
+                    ? analysis.skills
+                        .map((s) => `<span class="skill">${s}</span>`)
+                        .join("")
+                    : "<i>No skills extracted yet.</i>"
+                }
             </div>
             <p><b>Status:</b> JavaScript processor integrated into Express server</p>
         </div>
@@ -166,8 +175,18 @@ app.get('/processor-status', (req, res) => {
 });
 
 // Health check
-app.get('/', (req, res) => {
-  res.send('Express server is running.');
+app.get("/", (req, res) => {
+  res.send("Express server is running.");
+});
+
+// Add this after other API endpoints
+app.get("/api/jobs/search", async (req, res) => {
+  try {
+    const jobs = await jobFetcher.query(req.query);
+    res.json(jobs);
+  } catch (error) {
+    res.status(500).json({ error: error.message || "Failed to fetch jobs" });
+  }
 });
 
 app.listen(PORT, () => {
