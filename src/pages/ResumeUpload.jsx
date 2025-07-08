@@ -16,7 +16,7 @@ const ResumeUpload = () => {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
 
-  const { user, updateUser } = useAuth();
+  const { user, updateUser, setUserSkills } = useAuth();
   const { setResumeData } = useJobs();
   const navigate = useNavigate();
 
