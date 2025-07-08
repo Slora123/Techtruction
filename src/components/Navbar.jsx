@@ -1,42 +1,62 @@
-import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext.jsx';
-import { 
-  Brain, 
-  User, 
-  LogOut, 
-  Menu, 
-  X, 
+import React, { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext.jsx";
+import {
+  Brain,
+  User,
+  LogOut,
+  Menu,
+  X,
   Home,
   Upload,
   FileText,
   Briefcase,
-  Settings
-} from 'lucide-react';
+  Settings,
+  Sun,
+  Moon,
+} from "lucide-react";
+
+// Dark mode toggle logic
+function useDarkMode() {
+  const [isDark, setIsDark] = React.useState(() =>
+    document.documentElement.classList.contains("dark")
+  );
+  React.useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDark]);
+  return [isDark, setIsDark];
+}
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useDarkMode();
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
     setIsMobileMenuOpen(false);
   };
 
-  const navItems = user ? [
-    { path: '/dashboard', label: 'Dashboard', icon: Home },
-    { path: '/resume-upload', label: 'Upload Resume', icon: Upload },
-    { path: '/resume-analysis', label: 'Analysis', icon: FileText },
-    { path: '/job-matching', label: 'Jobs', icon: Briefcase },
-  ] : [];
+  const navItems = user
+    ? [
+        { path: "/dashboard", label: "Dashboard", icon: Home },
+        { path: "/resume-upload", label: "Upload Resume", icon: Upload },
+        { path: "/resume-analysis", label: "Analysis", icon: FileText },
+        { path: "/job-matching", label: "Jobs", icon: Briefcase },
+      ]
+    : [];
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-white shadow-lg border-b">
+    <nav className="bg-white shadow-lg border-b dark:bg-gray-900 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -60,8 +80,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? "bg-blue-100 text-blue-700 dark:bg-gray-800 dark:text-blue-300"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-blue-400 dark:hover:bg-gray-800"
                   }`}
                 >
                   <IconComponent className="h-4 w-4" />
@@ -73,6 +93,18 @@ const Navbar = () => {
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
+            {/* Dark mode toggle */}
+            <button
+              onClick={() => setIsDark((d) => !d)}
+              className="p-2 rounded-md text-gray-600 hover:text-yellow-500 hover:bg-yellow-100 dark:text-gray-300 dark:hover:text-yellow-400 dark:hover:bg-gray-800 transition-all duration-200"
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
             {user ? (
               <div className="flex items-center space-x-3">
                 <div className="hidden md:flex items-center space-x-2">
@@ -81,7 +113,9 @@ const Navbar = () => {
                     alt={user.name}
                     className="h-8 w-8 rounded-full ring-2 ring-blue-200"
                   />
-                  <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                  <span className="text-sm font-medium text-gray-700">
+                    {user.name}
+                  </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Link
@@ -120,7 +154,23 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md"
             >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+            {/* Mobile dark mode toggle */}
+            <button
+              onClick={() => setIsDark((d) => !d)}
+              className="md:hidden p-2 rounded-md text-gray-600 hover:text-yellow-500 hover:bg-yellow-100 dark:text-gray-300 dark:hover:text-yellow-400 dark:hover:bg-gray-800 transition-all duration-200 ml-2"
+              aria-label="Toggle dark mode"
+            >
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -137,10 +187,12 @@ const Navbar = () => {
                   alt={user.name}
                   className="h-8 w-8 rounded-full ring-2 ring-blue-200"
                 />
-                <span className="text-sm font-medium text-gray-700">{user.name}</span>
+                <span className="text-sm font-medium text-gray-700">
+                  {user.name}
+                </span>
               </div>
             )}
-            
+
             {navItems.map((item) => {
               const IconComponent = item.icon;
               return (
@@ -150,8 +202,8 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium ${
                     isActive(item.path)
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? "bg-blue-100 text-blue-700"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   }`}
                 >
                   <IconComponent className="h-5 w-5" />
@@ -159,7 +211,7 @@ const Navbar = () => {
                 </Link>
               );
             })}
-            
+
             {user && (
               <button
                 onClick={handleLogout}
