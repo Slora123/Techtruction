@@ -137,6 +137,23 @@ app.post("/upload", upload.single("resume"), async (req, res) => {
   }
 });
 
+// Save resume data to a JSON file
+app.post('/api/save-resume', (req, res) => {
+  try {
+    const resumeData = req.body;
+    // Use fullName or email as the identifier
+    let name = resumeData.fullName || resumeData.email || 'unknown';
+    // Sanitize: remove spaces and special characters
+    name = String(name).toLowerCase().replace(/[^a-z0-9]/g, '');
+    const filePath = path.join(__dirname, 'data', `resume_${name}.json`);
+    fs.writeFileSync(filePath, JSON.stringify(resumeData, null, 2));
+    res.json({ success: true, file: filePath });
+  } catch (err) {
+    console.error('Failed to save resume:', err);
+    res.status(500).json({ success: false, error: 'Failed to save resume' });
+  }
+});
+
 // GET /processor-status: Get latest analysis info
 app.get("/processor-status", (req, res) => {
   const analysis = getLatestAnalysis();

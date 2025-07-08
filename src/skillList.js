@@ -1,0 +1,22 @@
+export const SKILL_LIST = [
+    'java', 'python', 'javascript', 'c', 'c++', 'c#', 'go', 'rust', 'ruby', 'kotlin',
+    'swift', 'typescript', 'php', 'sql', 'html', 'css', 'bash', 'shell scripting', 'r', 'perl',
+    'matlab', 'scala', 'haskell', 'dart', 'objective-c', 'node.js', 'react', 'angular', 'vue.js', 'next.js',
+    'express.js', 'spring boot', 'django', 'flask', 'tensorflow', 'pytorch', 'keras', 'opencv', 'pandas', 'numpy',
+    'aws', 'azure', 'gcp', 'docker', 'kubernetes', 'linux', 'git', 'jenkins', 'terraform', 'ansible',
+    'accounting', 'auditing', 'taxation', 'financial analysis', 'cost accounting', 'budgeting', 'bookkeeping', 'payroll', 'erp', 'sap',
+    'tally', 'quickbooks', 'risk management', 'corporate finance', 'forensic accounting', 'financial modeling', 'investment analysis', 'mergers & acquisitions', 'equity research', 'treasury management',
+    'business analysis', 'economics', 'gaap', 'ifrs', 'internal controls', 'financial reporting', 'business strategy', 'forecasting', 'bank reconciliation', 'management accounting',
+    'business law', 'compliance', 'insurance', 'operations management', 'inventory management', 'supply chain', 'logistics', 'crm', 'salesforce', 'procurement',
+    'human resources', 'recruitment', 'talent management', 'organizational behavior', 'labor laws', 'compensation & benefits', 'market research', 'negotiation', 'ms excel', 'data entry',
+    'adobe photoshop', 'adobe illustrator', 'adobe indesign', 'adobe xd', 'figma', 'sketch', 'coreldraw', 'canva', 'ui design', 'ux design',
+    'wireframing', 'prototyping', 'graphic design', 'logo design', 'print design', 'typography', 'color theory', 'photo editing', 'video editing', 'animation',
+    'adobe premiere pro', 'final cut pro', 'after effects', 'blender', '3ds max', 'cinema 4d', 'maya', 'davinci resolve', 'photography', 'lighting techniques',
+    'sound design', 'audio editing', 'storyboarding', 'character design', 'digital painting', 'vector art', 'infographics', 'social media design', 'brand identity', 'motion graphics',
+    'visual storytelling', 'art direction', 'layout design', 'design thinking', 'creative writing', 'copywriting', 'marketing design', 'color grading', 'image retouching', 'concept art',
+    'communication', 'teamwork', 'problem solving', 'time management', 'adaptability', 'creativity', 'work ethic', 'critical thinking', 'leadership', 'emotional intelligence',
+    'interpersonal skills', 'decision making', 'conflict resolution', 'stress management', 'negotiation', 'public speaking', 'presentation skills', 'self-motivation', 'attention to detail', 'listening skills',
+    'collaboration', 'responsibility', 'accountability', 'open-mindedness', 'patience', 'empathy', 'persuasion', 'confidence', 'initiative', 'resilience',
+    'organizational skills', 'goal setting', 'analytical thinking', 'multitasking', 'cultural awareness', 'positive attitude', 'coaching', 'networking', 'writing skills', 'diplomacy',
+    'planning', 'decision execution', 'respectfulness', 'integrity', 'professionalism', 'learning agility', 'customer focus', 'innovation', 'delegation', 'trustworthiness'
+]; 
