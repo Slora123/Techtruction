@@ -26,7 +26,7 @@ function App() {
 
   return (
     <JobProvider>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:bg-gray-950 dark:text-gray-100">
         <Navbar />
         <Routes>
           <Route
