@@ -5,25 +5,10 @@
   "location": "",
   "linkedin": "",
   "website": "",
-  "summary": "",
-  "experience": [
-    {
-      "title": "",
-      "company": "",
-      "location": "",
-      "startDate": "",
-      "endDate": "",
-      "current": false,
-      "description": ""
-    }
-  ],
   "education": [
     {
       "degree": "",
-      "school": "",
-      "location": "",
-      "graduationDate": "",
-      "gpa": ""
+      "school": ""
     }
   ],
   "skills": [],
