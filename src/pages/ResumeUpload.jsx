@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
 import { useJobs } from "../context/JobContext.jsx";
-import { Upload, FileText, CheckCircle, AlertCircle } from "lucide-react";
+import {
+  Upload,
+  FileText,
+  CheckCircle,
+  AlertCircle,
+  FilePlus,
+} from "lucide-react";
 
 const ResumeUpload = () => {
   const [dragActive, setDragActive] = useState(false);
@@ -118,7 +124,7 @@ const ResumeUpload = () => {
             Your resume "{user.resumeFileName}" has been uploaded and is ready
             for analysis.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
             <button
               onClick={() => navigate("/resume-analysis")}
               className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
@@ -136,6 +142,13 @@ const ResumeUpload = () => {
               Upload New Resume
             </button>
           </div>
+          <button
+            onClick={() => navigate("/resume-builder")}
+            className="mt-2 px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-200 flex items-center justify-center mx-auto"
+          >
+            <FilePlus className="h-5 w-5 mr-2" />
+            Make Resume
+          </button>
         </div>
       </div>
     );
@@ -238,6 +251,16 @@ const ResumeUpload = () => {
             </div>
           </div>
         )}
+
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => navigate("/resume-builder")}
+            className="px-8 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-lg hover:from-green-600 hover:to-blue-600 transition-all duration-200 flex items-center"
+          >
+            <FilePlus className="h-5 w-5 mr-2" />
+            Make Resume
+          </button>
+        </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <h4 className="font-semibold text-gray-900 mb-4">
