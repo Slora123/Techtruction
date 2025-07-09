@@ -131,12 +131,12 @@ const ResumeBuilder = () => {
 
   const renderPersonalInfo = () => (
     <div className="space-y-6">
-      <h3 className="text-xl font-semibold text-gray-900">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
         Personal Information
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Full Name
           </label>
           <input
@@ -145,11 +145,11 @@ const ResumeBuilder = () => {
             onChange={(e) =>
               updateField("personalInfo", "fullName", e.target.value)
             }
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Email
           </label>
           <input
@@ -158,11 +158,11 @@ const ResumeBuilder = () => {
             onChange={(e) =>
               updateField("personalInfo", "email", e.target.value)
             }
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Phone
           </label>
           <input
@@ -171,11 +171,11 @@ const ResumeBuilder = () => {
             onChange={(e) =>
               updateField("personalInfo", "phone", e.target.value)
             }
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Location
           </label>
           <input
@@ -184,11 +184,11 @@ const ResumeBuilder = () => {
             onChange={(e) =>
               updateField("personalInfo", "location", e.target.value)
             }
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             LinkedIn
           </label>
           <input
@@ -197,11 +197,11 @@ const ResumeBuilder = () => {
             onChange={(e) =>
               updateField("personalInfo", "linkedin", e.target.value)
             }
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Website
           </label>
           <input
@@ -210,7 +210,7 @@ const ResumeBuilder = () => {
             onChange={(e) =>
               updateField("personalInfo", "website", e.target.value)
             }
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
       </div>
@@ -219,11 +219,11 @@ const ResumeBuilder = () => {
 
   const renderSummary = () => (
     <div className="space-y-6">
-      <h3 className="text-xl font-semibold text-gray-900">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
         Professional Summary
       </h3>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Summary
         </label>
         <textarea
@@ -231,7 +231,7 @@ const ResumeBuilder = () => {
           value={resumeData.summary}
           onChange={(e) => updateField("summary", null, e.target.value)}
           placeholder="Write a compelling professional summary that highlights your key strengths and career objectives..."
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
       </div>
     </div>
@@ -240,7 +240,9 @@ const ResumeBuilder = () => {
   const renderExperience = () => (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-semibold text-gray-900">Work Experience</h3>
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+          Work Experience
+        </h3>
         <button
           onClick={() => addArrayItem("experience")}
           className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -251,17 +253,20 @@ const ResumeBuilder = () => {
       </div>
 
       {resumeData.experience.map((exp, index) => (
-        <div key={index} className="bg-gray-50 p-6 rounded-lg relative">
+        <div
+          key={index}
+          className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg relative"
+        >
           <button
             onClick={() => removeArrayItem("experience", index)}
-            className="absolute top-4 right-4 p-2 text-red-600 hover:bg-red-100 rounded-lg transition-colors"
+            className="absolute top-4 right-4 p-2 text-red-600 hover:bg-red-100 dark:hover:bg-red-900 rounded-lg transition-colors"
           >
             <Trash2 className="h-4 w-4" />
           </button>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Job Title
               </label>
               <input
@@ -270,11 +275,11 @@ const ResumeBuilder = () => {
                 onChange={(e) =>
                   updateField("experience", "title", e.target.value, index)
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Company
               </label>
               <input
@@ -283,11 +288,11 @@ const ResumeBuilder = () => {
                 onChange={(e) =>
                   updateField("experience", "company", e.target.value, index)
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Location
               </label>
               <input
@@ -296,12 +301,12 @@ const ResumeBuilder = () => {
                 onChange={(e) =>
                   updateField("experience", "location", e.target.value, index)
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
             <div className="flex items-center space-x-4">
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Start Date
                 </label>
                 <input
@@ -315,11 +320,11 @@ const ResumeBuilder = () => {
                       index
                     )
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
               <div className="flex-1">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   End Date
                 </label>
                 <input
@@ -329,7 +334,7 @@ const ResumeBuilder = () => {
                     updateField("experience", "endDate", e.target.value, index)
                   }
                   disabled={exp.current}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 dark:disabled:bg-gray-700"
                 />
               </div>
               <div className="pt-8">
@@ -347,14 +352,16 @@ const ResumeBuilder = () => {
                     }
                     className="mr-2"
                   />
-                  <span className="text-sm text-gray-700">Current</span>
+                  <span className="text-sm text-gray-700 dark:text-gray-300">
+                    Current
+                  </span>
                 </label>
               </div>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Description
             </label>
             <textarea
@@ -364,7 +371,7 @@ const ResumeBuilder = () => {
                 updateField("experience", "description", e.target.value, index)
               }
               placeholder="Describe your key responsibilities and achievements..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
           </div>
         </div>
@@ -375,7 +382,9 @@ const ResumeBuilder = () => {
   const renderSkills = () => (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-xl font-semibold text-gray-900">Skills</h3>
+        <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+          Skills
+        </h3>
         <button
           onClick={() => addArrayItem("skills")}
           className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -395,11 +404,11 @@ const ResumeBuilder = () => {
                 updateField("skills", null, e.target.value, index)
               }
               placeholder="Enter a skill..."
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             />
             <button
               onClick={() => removeArrayItem("skills", index)}
-              className="p-2 text-red-600 hover:bg-red-100 rounded-lg transition-colors"
+              className="p-2 text-red-600 hover:bg-red-100 dark:hover:bg-red-900 rounded-lg transition-colors"
             >
               <Trash2 className="h-4 w-4" />
             </button>
@@ -425,60 +434,62 @@ const ResumeBuilder = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Resume Builder
-        </h1>
-        <p className="text-xl text-gray-600">
-          Create a professional, ATS-optimized resume that gets results
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Sidebar Navigation */}
-        <div className="lg:col-span-1">
-          <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Sections
-            </h3>
-            <nav className="space-y-2">
-              {sections.map((section) => {
-                const IconComponent = section.icon;
-                return (
-                  <button
-                    key={section.id}
-                    onClick={() => setActiveSection(section.id)}
-                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
-                      activeSection === section.id
-                        ? "bg-blue-100 text-blue-700"
-                        : "text-gray-700 hover:bg-gray-100"
-                    }`}
-                  >
-                    <IconComponent className="h-5 w-5" />
-                    <span>{section.label}</span>
-                  </button>
-                );
-              })}
-            </nav>
-
-            <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
-              <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-200">
-                <Save className="h-4 w-4" />
-                <span>Save Draft</span>
-              </button>
-              <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors">
-                <Download className="h-4 w-4" />
-                <span>Download PDF</span>
-              </button>
-            </div>
-          </div>
+    <div className="min-h-screen w-full bg-white dark:bg-gray-950 dark:text-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            Resume Builder
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            Create a professional, ATS-optimized resume that gets results
+          </p>
         </div>
 
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            {renderCurrentSection()}
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Sidebar Navigation */}
+          <div className="lg:col-span-1">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 sticky top-8">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+                Sections
+              </h3>
+              <nav className="space-y-2">
+                {sections.map((section) => {
+                  const IconComponent = section.icon;
+                  return (
+                    <button
+                      key={section.id}
+                      onClick={() => setActiveSection(section.id)}
+                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
+                        activeSection === section.id
+                          ? "bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300"
+                          : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                      }`}
+                    >
+                      <IconComponent className="h-5 w-5" />
+                      <span>{section.label}</span>
+                    </button>
+                  );
+                })}
+              </nav>
+
+              <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-3">
+                <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-700 dark:to-purple-800 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 dark:hover:from-blue-800 dark:hover:to-purple-900 transition-all duration-200">
+                  <Save className="h-4 w-4" />
+                  <span>Save Draft</span>
+                </button>
+                <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-green-600 dark:bg-green-700 text-white font-medium rounded-lg hover:bg-green-700 dark:hover:bg-green-800 transition-colors">
+                  <Download className="h-4 w-4" />
+                  <span>Download PDF</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Content */}
+          <div className="lg:col-span-3">
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-8">
+              {renderCurrentSection()}
+            </div>
           </div>
         </div>
       </div>
